@@ -9,11 +9,11 @@ const PORT = process.env.PORT;
 app.get('/sum', async (req, res) => {
   try {
 
-    const { data: { num1, num2 } } = await axios.get('http://localhost:6001/random');
+    const { data: { num1, num2 } } = await axios.get('http://localhost:3003/random');
 
     const suma = num1 + num2;
 
-    res.json({ suma });
+    res.json({ num1, num2, suma });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error al sumar los números' });
